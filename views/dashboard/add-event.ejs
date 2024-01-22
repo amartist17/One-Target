@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<head>
+    <!--  Title -->
+    <title>Mordenize</title>
+    <!--  Required Meta Tag -->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="handheldfriendly" content="true" />
+    <meta name="MobileOptimized" content="width" />
+    <meta name="description" content="Mordenize" />
+    <meta name="author" content="" />
+    <meta name="keywords" content="Mordenize" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!--  Favicon -->
+    <link rel="shortcut icon" type="image/png" href="/assets/dashboard/dist/images/logos/favicon.png" />
+    <!-- Owl Carousel -->
+    <link rel="stylesheet" href="/assets/dashboard/dist/libs/owl.carousel/dist/assets/owl.carousel.min.css">
+    <!-- Core Css -->
+    <link  id="themeColors"  rel="stylesheet" href="/assets/dashboard/dist/css/style.min.css" />
+    <link rel="stylesheet" href="/assets/dashboard/dist/libs/quill/dist/quill.snow.css">
+    <style>
+      .hidden{
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Preloader -->
+    <div class="preloader">
+      <img src="/assets/dashboard/dist/images/logos/favicon.png" alt="loader" class="lds-ripple img-fluid" />
+    </div>
+    <!-- Preloader -->
+    <div class="preloader">
+      <img src="/assets/dashboard/dist/images/logos/favicon.png" alt="loader" class="lds-ripple img-fluid" />
+    </div>
+    <!-- Body Wrapper -->
+    <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed">
+      <!-- Sidebar Start -->
+      <aside class="left-sidebar">
+        <!-- Sidebar scroll-->
+        <div>
+          <div class="brand-logo d-flex align-items-center justify-content-between">
+            <a href="index.html" class="text-nowrap logo-img">
+              <img src="https://demos.adminmart.com/premium/bootstrap/modernize-bootstrap/package/dist/images/logos/dark-logo.svg" class="dark-logo" width="180" alt="" />
+              <img src="https://demos.adminmart.com/premium/bootstrap/modernize-bootstrap/package/dist/images/logos/light-logo.svg" class="light-logo"  width="180" alt="" />
+            </a>
+            <div class="close-btn d-lg-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
+              <i class="ti ti-x fs-8"></i>
+            </div>
+          </div>
+          <!-- Sidebar navigation-->
+          <%- include('nav') %>
+          <div class="fixed-profile p-3 bg-light-secondary rounded sidebar-ad mt-3">
+            <div class="hstack gap-3">
+              <div class="john-img">
+                <img src="/assets/dashboard/dist/images/profile/user-1.jpg" class="rounded-circle" width="40" height="40" alt="">
+              </div>
+              <div class="john-title">
+                <h6 class="mb-0 fs-4 fw-semibold"><%= user.name %></h6>
+                <span class="fs-2 text-dark">Jewellery Designer</span>
+              </div>
+              <button class="border-0 bg-transparent text-primary ms-auto" tabindex="0" type="button" aria-label="logout" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="logout">
+                <i class="ti ti-power fs-6"></i>
+              </button>
+            </div>
+          </div>  
+          <!-- End Sidebar navigation -->
+        </div>
+        <!-- End Sidebar scroll-->
+      </aside>
+      <!-- Sidebar End -->
+      <!-- Main wrapper -->
+      <div class="body-wrapper">
+        <!-- Header Start -->
+        <%- include('header') %>
+        <!-- Header End -->
+        <div class="container-fluid">
+          <%- include('banner') %> 
+            <div class="row">
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-12">
+                          
+                          <div class="card">
+                            <div class="card-body">
+                              <h5 class="mb-3">Add Event</h5>
+                              <form class="jewellery-form" enctype="multipart/form-data">
+                                <div class="alert alert-success alert-dismissible bg-success text-white border-0 fade show hidden" role="alert">
+                                  <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close"></button>
+                                  <strong>Success - </strong> Event Added
+                                </div>
+                                <div class="alert alert-danger alert-dismissible bg-danger text-white border-0 fade show hidden" role="alert">
+                                  <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close"></button>
+                                  <strong>Error - </strong> Error Occurred
+                                </div>
+                                <div class="row">
+                                  <div class="col-md-6">
+                                    <div class="form-floating mb-3">
+                                      <input
+                                        type="text"
+                                        class="form-control"
+                                        id="tb-fname"
+                                        name="name"
+                                        placeholder="Enter Name here"
+                                      />
+                                      <label for="tb-fname">Name</label>
+                                    </div>
+                                  </div>
+                                 
+                                  
+                                  <div class="col-md-6">
+                                    <div class="form-floating">
+                                      <input
+                                        type="date"
+                                        class="form-control"
+                                        id="tb-pwd"
+                                        name="date"
+                                        placeholder="Material"
+                                      />
+                                      <label for="tb-pwd">Date</label>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <div class="form-floating">
+                                      <input
+                                        type="text"
+                                        class="form-control"
+                                        id="tb-cpwd"
+                                        name="time"
+                                        placeholder="Time"
+                                      />
+                                      <small id="name" class="badge badge-default text-info font-medium bg-light-info form-text">Example : "11:00am" </small>
+
+                                      <label for="tb-cpwd">Time</label>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <div class="form-floating">
+                                      <input
+                                        type="text"
+                                        class="form-control"
+                                        id="tb-cpwd"
+                                        name="location"
+                                        placeholder="Location"
+                                      />
+                                      <label for="tb-cpwd">Location</label>
+                                    </div>
+                                  </div>
+                                  
+                                  
+                                  
+                                  <div class="col-md-6 mt-4">
+                                    <div class="form-floating">
+                                      <input
+                                        type="text"
+                                        class="form-control"
+                                        id="tb-cpwd"
+                                        name="image"
+                                        placeholder="Image Link"
+                                      />
+                                      <small id="name" class="badge badge-default text-info font-medium bg-light-info form-text">Size 420x250</small>
+
+                                      <label for="tb-cpwd">Image Link</label>
+                                    </div>
+                                    
+                                  </div>
+                                  <div class="col-md-6">
+                                    <div >
+                                      <div class="form-group mb-4">
+                                        <label for="exampleFormControlSelect1">Description</label>
+                                        <!-- <input class="form-control" name="files" type="file" id="formFile" multiple> -->
+                                        <textarea name="description" class="form-control" rows="3"></textarea>
+                                        <small id="name" class="badge badge-default text-info font-medium bg-light-info form-text">Approx 20-25 words.</small>
+
+                                    </div>
+                                    
+                                    </div>
+                                    
+                                  </div>
+                                  <div class="col-12 ">
+                                    <div class="d-md-flex align-items-center mt-3">
+                                      
+                                      <div class="ms-auto mt-3 mt-md-0">
+                                        <button
+                                          type="submit"
+                                          class="btn btn-info font-medium rounded-pill px-4"
+                                        >
+                                          <div class="d-flex align-items-center">
+                                            <i class="ti ti-send me-2 fs-4"></i>
+                                            Submit
+                                          </div>
+                                        </button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </form>
+                            </div>
+                          </div>
+                </div>
+            </div>
+          </div>
+        </div>
+        <!-- container-fluid over -->
+      
+    </div>
+    <!--  Shopping Cart -->
+    
+    <!-- Customizer -->
+   <button class="btn btn-primary p-3 rounded-circle d-flex align-items-center justify-content-center customizer-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+    <i class="ti ti-settings fs-7" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Settings"></i>
+  </button>
+  <div class="offcanvas offcanvas-end customizer" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel" data-simplebar="">
+    <div class="d-flex align-items-center justify-content-between p-3 border-bottom">
+      <h4 class="offcanvas-title fw-semibold" id="offcanvasExampleLabel">Settings</h4>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body p-4">
+      <div class="theme-option pb-4">
+        <h6 class="fw-semibold fs-4 mb-1">Theme Option</h6>
+        <div class="d-flex align-items-center gap-3 my-3">
+          <a href="javascript:void(0)"  onclick="toggleTheme('/assets/dashboard/dist/css/style.min.css')"  class="rounded-2 p-9 customizer-box hover-img d-flex align-items-center gap-2 light-theme text-dark">
+            <i class="ti ti-brightness-up fs-7 text-primary"></i>
+            <span class="text-dark">Light</span>
+          </a>
+          <a href="javascript:void(0)" onclick="toggleTheme('/assets/dashboard/dist/css/style-dark.min.css')" class="rounded-2 p-9 customizer-box hover-img d-flex align-items-center gap-2 dark-theme text-dark">
+            <i class="ti ti-moon fs-7 "></i>
+            <span class="text-dark">Dark</span>
+          </a>
+        </div>
+      </div>
+      
+      <div class="theme-colors pb-4">
+        <h6 class="fw-semibold fs-4 mb-1">Theme Colors</h6>
+        <div class="d-flex align-items-center gap-3 my-3">
+          <ul class="list-unstyled mb-0 d-flex gap-3 flex-wrap change-colors">
+            <li class="rounded-2 p-9 customizer-box hover-img d-flex align-items-center justify-content-center">
+              <a href="javascript:void(0)" class="rounded-circle position-relative d-block customizer-bgcolor skin1-bluetheme-primary active-theme " onclick="toggleTheme('/assets/dashboard/dist/css/style.min.css')"  data-color="blue_theme" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="BLUE_THEME"><i class="ti ti-check text-white d-flex align-items-center justify-content-center fs-5"></i></a>
+            </li>
+            <li class="rounded-2 p-9 customizer-box hover-img d-flex align-items-center justify-content-center">
+              <a href="javascript:void(0)"  class="rounded-circle position-relative d-block customizer-bgcolor skin2-aquatheme-primary " onclick="toggleTheme('/assets/dashboard/dist/css/style-aqua.min.css')"  data-color="aqua_theme" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="AQUA_THEME"><i class="ti ti-check  text-white d-flex align-items-center justify-content-center fs-5"></i></a>
+            </li>
+            <li class="rounded-2 p-9 customizer-box hover-img d-flex align-items-center justify-content-center">
+              <a href="javascript:void(0)" class="rounded-circle position-relative d-block customizer-bgcolor skin3-purpletheme-primary" onclick="toggleTheme('/assets/dashboard/dist/css/style-purple.min.css')"  data-color="purple_theme" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="PURPLE_THEME"><i class="ti ti-check  text-white d-flex align-items-center justify-content-center fs-5"></i></a>
+            </li>
+            <li class="rounded-2 p-9 customizer-box hover-img d-flex align-items-center justify-content-center">
+              <a href="javascript:void(0)" class="rounded-circle position-relative d-block customizer-bgcolor skin4-greentheme-primary" onclick="toggleTheme('/assets/dashboard/dist/css/style-green.min.css')"  data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="GREEN_THEME"><i class="ti ti-check  text-white d-flex align-items-center justify-content-center fs-5"></i></a>
+            </li>
+            <li class="rounded-2 p-9 customizer-box hover-img d-flex align-items-center justify-content-center">
+              <a href="javascript:void(0)" class="rounded-circle position-relative d-block customizer-bgcolor skin5-cyantheme-primary" onclick="toggleTheme('/assets/dashboard/dist/css/style-cyan.min.css')"  data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="CYAN_THEME"><i class="ti ti-check  text-white d-flex align-items-center justify-content-center fs-5"></i></a>
+            </li>
+            <li class="rounded-2 p-9 customizer-box hover-img d-flex align-items-center justify-content-center">
+              <a href="javascript:void(0)" class="rounded-circle position-relative d-block customizer-bgcolor skin6-orangetheme-primary" onclick="toggleTheme('/assets/dashboard/dist/css/style-orange.min.css')"  data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="ORANGE_THEME"><i class="ti ti-check  text-white d-flex align-items-center justify-content-center fs-5"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+     
+      <div class="container-option pb-4">
+        <h6 class="fw-semibold fs-4 mb-1">Container Option</h6>
+        <div class="d-flex align-items-center gap-3 my-3">
+          <a href="javascript:void(0)" class="rounded-2 p-9 customizer-box hover-img d-flex align-items-center gap-2 boxed-width text-dark">              
+            <i class="ti ti-layout-distribute-vertical fs-7 text-primary"></i>
+            <span class="text-dark">Boxed</span>
+          </a>
+          <a href="javascript:void(0)" class="rounded-2 p-9 customizer-box hover-img d-flex align-items-center gap-2 full-width text-dark">
+            <i class="ti ti-layout-distribute-horizontal fs-7"></i>
+            <span class="text-dark">Full</span>
+          </a>
+        </div>
+      </div>
+      <div class="sidebar-type pb-4">
+        <h6 class="fw-semibold fs-4 mb-1">Sidebar Type</h6>
+        <div class="d-flex align-items-center gap-3 my-3">
+          <a  href="javascript:void(0)" class="rounded-2 p-9 customizer-box hover-img d-flex align-items-center gap-2 fullsidebar">              
+            <i class="ti ti-layout-sidebar-right fs-7"></i>
+            <span class="text-dark">Full</span>
+          </a>
+          <a  href="javascript:void(0)" class="rounded-2 p-9 customizer-box hover-img d-flex align-items-center text-dark sidebartoggler gap-2">
+            <i class="ti ti-layout-sidebar fs-7"></i>
+            <span class="text-dark">Collapse</span>
+          </a>
+        </div>
+      </div>
+      <div class="card-with pb-4">
+        <h6 class="fw-semibold fs-4 mb-1">Card With</h6>
+        <div class="d-flex align-items-center gap-3 my-3">
+          <a href="javascript:void(0)" class="rounded-2 p-9 customizer-box hover-img d-flex align-items-center gap-2 text-dark cardborder">              
+            <i class="ti ti-border-outer fs-7"></i>
+            <span class="text-dark">Border</span>
+          </a>
+          <a href="javascript:void(0)" class="rounded-2 p-9 customizer-box hover-img d-flex align-items-center gap-2 cardshadow">
+            <i class="ti ti-border-none fs-7"></i>
+            <span class="text-dark">Shadow</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+        <!-- Customizer -->
+    <!-- Import Js Files -->
+    <script src="/assets/dashboard/dist/libs/jquery/dist/jquery.min.js"></script>
+    <script src="/assets/dashboard/dist/libs/simplebar/dist/simplebar.min.js"></script>
+    <script src="/assets/dashboard/dist/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- core files -->
+    <script src="/assets/dashboard/dist/js/app.min.js"></script>
+    <script src="/assets/dashboard/dist/js/app.init.js"></script>
+    <script src="/assets/dashboard/dist/js/app-style-switcher.js"></script>
+    <script src="/assets/dashboard/dist/js/sidebarmenu.js"></script>
+    <script src="/assets/dashboard/dist/js/custom.js"></script>
+    <!-- current page js files -->
+    <script src="/assets/dashboard/dist/libs/apexcharts/dist/apexcharts.min.js"></script>
+    <script src="/assets/dashboard/dist/js/dashboard2.js"></script>
+    <script src="/assets/dashboard/dist/js/custom.js"></script>
+    <script src="/assets/dashboard/dist/libs/prismjs/prism.js"></script>
+    <script src="/assets/dashboard/dist/libs/quill/dist/quill.min.js"></script>
+    
+    <script>
+      $(document).ready(function () {
+          const form = $('.jewellery-form');
+          const successAlert = $('.alert-success');
+          const errorAlert = $('.alert-danger');
+      
+          form.submit(function (e) {
+              e.preventDefault();
+      
+              // Serialize form data
+              const formData = form.serialize();
+              // const form = $('.jewellery-form')[0]; // Convert jQuery object to plain JavaScript
+              // const formData = new FormData(form);
+              console.log(formData)
+              $.ajax({
+                  type: 'POST',
+                  url: '/api/add-event',
+                  data: formData,
+                
+                  
+                  success: function (data) {
+                    // console.log(data)
+                    
+                          // Show success message
+                          form[0].reset();
+                          successAlert.removeClass('hidden');
+                          setTimeout(function () {
+                              successAlert.addClass('hidden');
+                          }, 5000);
+                      
+                  },
+                  error: function (error) {
+                    errorAlert.removeClass('hidden');
+                          setTimeout(function () {
+                              errorAlert.addClass('hidden');
+                          }, 5000);
+                      console.error('Error:', error);
+                  }
+              });
+          
+            });
+      });
+      </script>
+  </body>
+
+</html>

@@ -1,27 +1,29 @@
+// const APIFeatures= require("../utils/apiFeatures")
+
+const catchAsync = require('./../utils/catchAsync')
+
 exports.home = async (req, res, next) => {
   res.status(200).render("index");
-};
-
-exports.files = async (req, res, next) => {
-  res.status(200).render("files");
-};
-
-exports.contact = async (req, res, next) => {
-  res.status(200).render("contact");
 };
 
 exports.login = async (req, res, next) => {
   res.status(200).render('login');
 };
 
-exports.addFile = async (req, res, next) => {
-  res.status(200).render('dashboard/add-file');
-};
+exports.dashboard = catchAsync(async (req, res, next) => {
+  // let orders = await Order.find()
+  
+  res.status(200).render('dashboard/home');
+});
 
-exports.addUser = async (req, res, next) => {
-  res.status(200).render('dashboard/add-user');
-};
+exports.addCourse = catchAsync(async (req, res, next) => {
+  // let orders = await Order.find()
+  
+  res.status(200).render('dashboard/add-course');
+});
 
-exports.addFolder = async (req, res, next) => {
-  res.status(200).render('dashboard/add-folder');
-};
+exports.addEvent = catchAsync(async (req, res, next) => {
+  // let orders = await Order.find()
+  
+  res.status(200).render('dashboard/add-event');
+});
