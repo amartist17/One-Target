@@ -3,7 +3,7 @@
   
 <head>
     <!--  Title -->
-    <title>Mordenize</title>
+    <title>OneTarget Dashboard</title>
     <!--  Required Meta Tag -->
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -20,6 +20,7 @@
     
     <!-- <link rel="stylesheet" href="/assets/dashboard/dist/libs/datatables.net-bs5/css/dataTables.bootstrap5.min.css"> -->
     <link href="https://cdn.datatables.net/v/dt/dt-1.13.6/datatables.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.dataTables.min.css">
 
     <!-- Core Css -->
     <link  id="themeColors"  rel="stylesheet" href="/assets/dashboard/dist/css/style.min.css" />
@@ -80,24 +81,24 @@
             <!-- File export -->
      
             <div class="row">
-              <div class="col-6">
+              <div class="col-lg-8 col-md-12">
                 <!-- ---------------------
                             start File export
                         ---------------- -->
                 <div class="card">
                   <div class="card-body">
                     <div class="mb-2">
-                      <h5 class="mb-0">Orders Table</h5>
+                      <h5 class="mb-0">Student Contact Table</h5>
                     </div>
                    
                     <div class="table-responsive">
                       <table
-                        id="orders-table" data-page-length='10'
+                        id="student-table" data-page-length='10'
                         class="table border table-striped table-bordered display text-nowrap"
                         >
                         <thead>
                           <!-- start row -->
-                          <tr>
+                          <tr style="overflow-x: scroll;">
                             <th>Student Name</th>
                             <th>Email</th>
                             <th>Phone</th>
@@ -107,15 +108,15 @@
                         </thead>
                         <tbody>
                           <!-- start row -->
+                          <% students.map(student=>{ %>
                           <tr>
-                            <td>Amardeep Singh</td>
-                            <td>amar@gmail.com</td>
-                            <td>9540699999</td>
-                            <td>12 jan 6:08</td>
-                            
-                            
-                            
+                            <td><%= student.name %></td>
+                            <td><%= student.email %></td>
+                            <td><%= student.phone %></td>
+                            <td><%= student.date.toLocaleString('en-GB', { day: '2-digit', month: '2-digit', year: '2-digit', hour: '2-digit', minute: '2-digit', hour12: false }).replace(/\/(\d{2}),/, '/$1').replace(',', ''); %></td>
+ 
                           </tr>
+                          <% }) %>
                           <!-- end row -->
                         </tbody>
                         <tfoot>
@@ -136,43 +137,46 @@
                             end File export
                         ---------------- -->
               </div>
-              <div class="col-6">
+              <div class="col-lg-4 col-md-12">
                 <!-- ---------------------
                             start File export
                         ---------------- -->
                 <div class="card">
                   <div class="card-body">
                     <div class="mb-2">
-                      <h5 class="mb-0">Orders Table</h5>
+                      <h5 class="mb-0">Teacher Response Table</h5>
                     </div>
                    
                     <div class="table-responsive">
                       <table
-                        id="orders-table" data-page-length='10'
+                        id="teacher-table" data-page-length='10'
                         class="table border table-striped table-bordered display text-nowrap"
                         >
                         <thead>
                           <!-- start row -->
                           <tr>
                             <th>Teacher Email</th>
+                            <th>Date</th>
                             
                           </tr>
                           <!-- end row -->
                         </thead>
                         <tbody>
                           <!-- start row -->
-                          <tr>
-                            <td>amar@gmail.com</td>
-                            
-                            
-                            
-                          </tr>
+                          <% teachers.map(teacher=>{ %>
+                            <tr>
+                              <td><%= teacher.email %></td>
+                              <td><%= teacher.date.toLocaleString('en-GB', { day: '2-digit', month: '2-digit', year: '2-digit', hour: '2-digit', minute: '2-digit', hour12: false }).replace(/\/(\d{2}),/, '/$1').replace(',', ''); %></td>
+   
+                            </tr>
+                            <% }) %>
                           <!-- end row -->
                         </tbody>
                         <tfoot>
                           <!-- start row -->
                           <tr>
                             <th>Teacher Email</th>
+                            <th>Date</th>
                             
                           </tr>
                           <!-- end row -->
@@ -299,17 +303,28 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
     <script src="https://cdn.datatables.net/v/zf/jszip-3.10.1/dt-1.13.6/b-2.4.2/b-colvis-2.4.2/b-html5-2.4.2/b-print-2.4.2/cr-1.7.0/r-2.5.0/datatables.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/js/foundation.min.js"></script>
-   
+   <script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
     <script>
       $(document).ready( function () {
-    $('#orders-table').DataTable({
+    $('#teacher-table').DataTable({
       // responsive: true,
       dom: 'Bfrtip',
+      responsive: true,
       buttons: [
       'copy', 'excel', 'pdf'
     ],
     pagingType: 'first_last_numbers'
     });
+    $('#student-table').DataTable({
+      // responsive: true,
+      dom: 'Bfrtip',
+      responsive: true,
+      buttons: [
+      'copy', 'excel', 'pdf'
+    ],
+    pagingType: 'first_last_numbers'
+    });
+    
     $(".buttons-copy, .buttons-csv, .buttons-print, .buttons-pdf, .buttons-excel"
 ).addClass("btn btn-primary mr-1");
 } );

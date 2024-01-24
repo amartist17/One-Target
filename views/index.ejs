@@ -1053,27 +1053,26 @@ Online Admison</h2>
 <h4 class="it-contact-title text-black">Search for courses</h4>
 <p class="pb-15">Reach out for Expert UPSC Guidance:
   Partner with us for personalized strategies and unparalleled support on your path to becoming a civil servant.</p>
-<form action="#">
+<form action="/api/student-funnel" method="POST" enctype="application/x-www-form-urlencoded">
 <div class="row">
 <div class="col-12 mb-15">
 <div class="it-contact-input-box">
-<input type="text" placeholder="Your Name">
+<input name="name" type="text" placeholder="Your Name" required>
 </div>
 </div>
 <div class="col-12 mb-15">
 <div class="it-contact-input-box">
-<input type="email" placeholder="Your Email">
+<input name="email" type="email" placeholder="Your Email" required>
 </div>
 </div>
 <div class="col-12 mb-15">
   <div class="it-contact-input-box">
-  <input type="number" placeholder="Your Phone">
+  <input type="number" name="phone" placeholder="Your Phone" required>
   </div>
   </div>
 
 
 </div>
-</form>
 <button type="submit" class="it-btn black-bg">
 <span>
 submit now
@@ -1083,6 +1082,7 @@ submit now
 </svg>
 </span>
 </button>
+</form>
 </div>
 </div>
 </div>
@@ -1345,8 +1345,11 @@ Why Should I Choose OneTarget?
   </div>
   <div class="col-xl-6 col-lg-6 col-md-6">
   <div class="it-newsletter-right p-relative text-end">
-  <input type="text" placeholder="Enter your email:">
+    <form action="/api/teacher-funnel" method="post" enctype="application/x-www-form-urlencoded">
+      
+  <input type="email" name="email" placeholder="Enter your email:" required>
   <button class="it-btn black-bg" type="submit"><span>Contact Now</span></button>
+    </form>
   </div>
   </div>
   </div>
