@@ -31,3 +31,14 @@ exports.addEvent = catchAsync(async (req, res, next) => {
         status: 'success',
     })
 })
+
+exports.aggregate = catchAsync(async (req, res, next) => {
+
+    const totalCourses=await Courses.countDocuments();
+    const totalEvents= await Events.countDocuments();
+      res.locals.totalCourses = totalCourses;
+      res.locals.totalEvents= totalEvents;
+      return next();
+
+  });
+  

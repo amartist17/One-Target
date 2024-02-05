@@ -1,9 +1,11 @@
 const express = require("express");
 const viewController = require('../controllers/viewController')
 const authController = require('../controllers/authController')
+const apiController = require('../controllers/apiController')
 const router = express.Router({ mergeParams: true });
 
 router.use(authController.isLoggedIn);
+router.use(apiController.aggregate);
 
 router.get("/", viewController.home);
 router.get("/login", viewController.login);
