@@ -86,7 +86,7 @@
                           <div class="card">
                             <div class="card-body">
                               <h5 class="mb-3">Add Event</h5>
-                              <form class="jewellery-form" enctype="multipart/form-data">
+                              <form class="event-form" enctype="multipart/form-data">
                                 <div class="alert alert-success alert-dismissible bg-success text-white border-0 fade show hidden" role="alert">
                                   <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close"></button>
                                   <strong>Success - </strong> Event Added
@@ -104,6 +104,7 @@
                                         id="tb-fname"
                                         name="name"
                                         placeholder="Enter Name here"
+                                        required
                                       />
                                       <label for="tb-fname">Name</label>
                                     </div>
@@ -117,7 +118,8 @@
                                         class="form-control"
                                         id="tb-pwd"
                                         name="date"
-                                        placeholder="Material"
+                                        placeholder="Date"
+                                        required
                                       />
                                       <label for="tb-pwd">Date</label>
                                     </div>
@@ -130,6 +132,7 @@
                                         id="tb-cpwd"
                                         name="time"
                                         placeholder="Time"
+                                        required
                                       />
                                       <small id="name" class="badge badge-default text-info font-medium bg-light-info form-text">Example : "11:00am" </small>
 
@@ -144,6 +147,7 @@
                                         id="tb-cpwd"
                                         name="location"
                                         placeholder="Location"
+                                        required
                                       />
                                       <small id="name" class="badge badge-default text-info font-medium bg-light-info form-text">Example : "Online / Jaipur" </small>
 
@@ -159,8 +163,9 @@
                                         type="text"
                                         class="form-control"
                                         id="tb-cpwd"
-                                        name="image"
+                                        name="imageUrl"
                                         placeholder="Image Link"
+                                        required
                                       />
                                       <small id="name" class="badge badge-default text-info font-medium bg-light-info form-text">Size 420x250</small>
 
@@ -173,7 +178,7 @@
                                       <div class="form-group mb-4">
                                         <label for="exampleFormControlSelect1">Description</label>
                                         <!-- <input class="form-control" name="files" type="file" id="formFile" multiple> -->
-                                        <textarea name="description" class="form-control" rows="3"></textarea>
+                                        <textarea name="description" class="form-control" rows="3" required></textarea>
                                         <small id="name" class="badge badge-default text-info font-medium bg-light-info form-text">Approx 20-25 words.</small>
 
                                     </div>
@@ -321,7 +326,7 @@
     
     <script>
       $(document).ready(function () {
-          const form = $('.jewellery-form');
+          const form = $('.event-form');
           const successAlert = $('.alert-success');
           const errorAlert = $('.alert-danger');
       
@@ -330,9 +335,9 @@
       
               // Serialize form data
               const formData = form.serialize();
-              // const form = $('.jewellery-form')[0]; // Convert jQuery object to plain JavaScript
+              // const form = $('.event-form')[0]; // Convert jQuery object to plain JavaScript
               // const formData = new FormData(form);
-              console.log(formData)
+              // console.log(formData)
               $.ajax({
                   type: 'POST',
                   url: '/api/add-event',

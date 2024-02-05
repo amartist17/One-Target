@@ -549,12 +549,13 @@ All Courses
 </div>
 </div>
 <div class="row">
+  <% courses.map(course=>{ %>
 <div class="col-xl-6 col-lg-6">
 <div class="it-course-2-wrap d-flex align-items-center">
 <div class="it-course-thumb  p-relative">
-<a class="fix" href="#"><img src="assets/img/onetargetimages/courses/course1.png" alt></a>
+<a class="fix" href="#"><img src="<%= course.imageUrl %>" alt></a>
 <div class="it-course-thumb-text">
-<span>General Studies</span>
+<span><%= course.subject %></span>
 </div>
 </div>
 <div class="it-course-content">
@@ -566,56 +567,25 @@ All Courses
 <i class="fa-sharp fa-regular fa-star"></i>
 <span>(4.7)</span>
 </div>
-<h4 class="it-course-title pb-15"><a href="#">UPSC Exam 2024 - General Studies</a></h4>
+<h4 class="it-course-title pb-15"><a href="#"><%= course.name %></a></h4>
 <div class="it-course-info pb-20 mb-25 d-flex justify-content-between">
-<span><i class="fa-light fa-book"></i>84 Lectures</span>
-<span><i class="fa-light fa-file-invoice"></i>133 Tests</span>
-<span><i class="fa-sharp fa-regular fa-clock"></i>40h 30m</span>
+<span><i class="fa-light fa-book"></i><%= course.lectures %> Lectures</span>
+<span><i class="fa-light fa-file-invoice"></i><%= course.tests %> Tests</span>
+<span><i class="fa-sharp fa-regular fa-clock"></i><%= course.duration %></span>
 <!-- <span><i class="fa-light fa-user"></i>Students 50+</span> -->
 </div>
 <div class="it-course-author pb-25">
-<span>By <i>Mr Raj Niran Singh</i></span>
+<span>By <i><%= course.teacher %></i></span>
 </div>
 <div class="it-course-price-box d-flex justify-content-between">
-<span><i>Rs 1500</i><span style="text-decoration: line-through; margin-left: 6px">Rs 3000</span></span>
-<a href="https://tcnfb.courses.store/363528?utm_source%3Dother%26utm_medium%3Dstudent-course-referral%26utm_campaign%3Dcourse-overview-webapp"><i class="fa-light fa-cart-shopping"></i>Try Now</a>
+<span><i>Rs <%= course.discountedPrice %></i><span style="text-decoration: line-through; margin-left: 6px">Rs <%= course.price %></span></span>
+<a href="<%= course.link %>"><i class="fa-light fa-cart-shopping"></i>Try Now</a>
 </div>
 </div>
 </div>
 </div>
-<div class="col-xl-6 col-lg-6">
-<div class="it-course-2-wrap d-flex align-items-center">
-<div class="it-course-thumb  p-relative">
-<a href="#"><img src="assets/img/onetargetimages/courses/course2.png" alt></a>
-<div class="it-course-thumb-text">
-<span>Geography</span>
-</div>
-</div>
-<div class="it-course-content">
-<div class="it-course-rating mb-10">
-<i class="fa-sharp fa-solid fa-star"></i>
-<i class="fa-sharp fa-solid fa-star"></i>
-<i class="fa-sharp fa-solid fa-star"></i>
-<i class="fa-sharp fa-solid fa-star"></i>
-<i class="fa-sharp fa-regular fa-star"></i>
-<span>(4.8)</span>
-</div>
-<h4 class="it-course-title pb-15"><a href="#">UPSC Exam 2024 - Geography of India</a></h4>
-<div class="it-course-info pb-20 mb-25 d-flex justify-content-between">
-<span><i class="fa-light fa-file-invoice"></i>52 Lectures</span>
-<span><i class="fa-light fa-book"></i>36 Test</span>
-<span><i class="fa-sharp fa-regular fa-clock"></i>29h 30m</span>
-</div>
-<div class="it-course-author pb-25">
-<span>By <i>Mr Raj Niran Singh</i></span>
-</div>
-<div class="it-course-price-box d-flex justify-content-between">
-<span><i>Rs 500</i><span style="text-decoration: line-through;margin-left: 6px">Rs 2000</span></span>
-<a href="https://tcnfb.courses.store/334953?utm_source%3Dother%26utm_medium%3Dstudent-course-referral%26utm_campaign%3Dcourse-overview-webapp"><i class="fa-light fa-cart-shopping"></i>Try Now</a>
-</div>
-</div>
-</div>
-</div>
+<% }) %>
+
 </div>
 </div>
 </div>
@@ -1105,103 +1075,40 @@ Our Events
 </div>
 </div>
 <div class="row">
+  <% events.map(event=>{ %>
 <div class="col-xl-4 col-lg-6 col-md-6 mb-30">
 <div class="it-event-2-item-box">
 <div class="it-event-2-item">
 <div class="it-event-2-thumb fix">
-<a href="#"><img src="assets/img/onetargetimages/events/1.jpg" alt></a>
+<a href="#"><img src="<%= event.imageUrl %>" alt></a>
 <div class="it-event-2-date">
-<span><i>26</i> <br>
-Febuary</span>
+<span><i><%= event.date.getDate(); %></i> <br>
+<%= event.date.toLocaleString('default', { month: 'long' }); %></span>
 </div>
 </div>
 <div class="it-event-2-content">
-<h4 class="it-event-2-title"><a href="#">Webinar For New UPSC Aspirants</a></h4>
+<h4 class="it-event-2-title"><a href="#"><%= event.name %></a></h4>
 <div class="it-event-2-text">
-<p class="mb-0 pb-10">Join our quality webinar tailored for new UPSC aspirants, featuring experienced teachers ready to guide you on your path to success.
+<p class="mb-0 pb-10"><%= event.description %>
 </p>
 </div>
 <div class="it-event-2-meta">
 <span>
 <i class="fa-light fa-clock"></i>
-Time: 11:00am 03;00pm
+Time: <%= event.time %>
 </span>
 <span>
 <a href="#">
 <i class="fa-light fa-location-dot"></i>
 </a>
-Location: Online
+Location: <%= event.location %>
 </span>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="col-xl-4 col-lg-6 col-md-6 mb-30">
-<div class="it-event-2-item-box">
-<div class="it-event-2-item">
-<div class="it-event-2-thumb fix">
-<a href="#"><img src="assets/img/onetargetimages/events/2.jpg" alt></a>
-<div class="it-event-2-date">
-<span><i>05</i> <br>
-Febuary</span>
-</div>
-</div>
-<div class="it-event-2-content">
-<h4 class="it-event-2-title"><a href="#">Scholarship Test
-for previewing</a></h4>
-<div class="it-event-2-text">
-<p class="mb-0 pb-10">Unlock your potential with our Scholarship Test, designed to support students striving for academic excellence.
-</p>
-</div>
-<div class="it-event-2-meta">
-<span>
-<i class="fa-light fa-clock"></i>
-Time: 11:00am 03;00pm
-</span>
-<span>
-<a href="#">
-<i class="fa-light fa-location-dot"></i>
-</a>
-Location: Online
-</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="col-xl-4 col-lg-6 col-md-6 mb-30">
-<div class="it-event-2-item-box">
-<div class="it-event-2-item">
-<div class="it-event-2-thumb fix">
-<a href="#"><img src="assets/img/onetargetimages/events/3.jpg" alt></a>
-<div class="it-event-2-date">
-<span><i>25</i> <br>
-April</span>
-</div>
-</div>
-<div class="it-event-2-content">
-<h4 class="it-event-2-title"><a href="#">Launch Of New Course</a></h4>
-<div class="it-event-2-text">
-<p class="mb-0 pb-10">Introducing 'Civics for UPSC 2024', a comprehensive new course crafted to deepen your understanding of the Indian polity and governance.
-</p>
-</div>
-<div class="it-event-2-meta">
-<span>
-<i class="fa-light fa-clock"></i>
-Time: 11:00am 03;00pm
-</span>
-<span>
-<a href="#">
-<i class="fa-light fa-location-dot"></i>
-</a>
-Location: Online
-</span>
-</div>
-</div>
-</div>
-</div>
-</div>
+<% }) %>
 </div>
 </div>
 </div>

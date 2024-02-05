@@ -2,9 +2,13 @@
 
 const catchAsync = require('./../utils/catchAsync');
 const StudentFunnel  = require('../models/studentFunnelModel');
-const TeacherFunnel = require('../models/teacherFunnelModel')
+const TeacherFunnel = require('../models/teacherFunnelModel');
+const Course = require('../models/courseModel');
+const Event = require('../models/eventModel');
 exports.home = async (req, res, next) => {
-  res.status(200).render("index");
+  const courses = await Course.find({}).sort({ createdAt: -1 }).limit(2);
+  const events= await Event.find({}).sort({ createdAt: -1 }).limit(3);
+  res.status(200).render("index",{courses,events});
 };
 
 exports.login = async (req, res, next) => {

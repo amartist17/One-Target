@@ -86,7 +86,7 @@
                           <div class="card">
                             <div class="card-body">
                               <h5 class="mb-3">Add Course</h5>
-                              <form class="jewellery-form" enctype="multipart/form-data">
+                              <form class="course-form" enctype="multipart/form-data">
                                 <div class="alert alert-success alert-dismissible bg-success text-white border-0 fade show hidden" role="alert">
                                   <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close"></button>
                                   <strong>Success - </strong> Course Added
@@ -104,6 +104,7 @@
                                         id="tb-fname"
                                         name="name"
                                         placeholder="Enter Name here"
+                                        required
                                       />
                                       <label for="tb-fname">Name</label>
                                     </div>
@@ -114,8 +115,9 @@
                                         type="text"
                                         class="form-control"
                                         id="tb-fname"
-                                        name="Subject"
+                                        name="subject"
                                         placeholder="Subject"
+                                        required
                                       />
                                       <label for="tb-fname">Subject</label>
                                     </div>
@@ -128,7 +130,8 @@
                                         class="form-control"
                                         id="tb-pwd"
                                         name="teacher"
-                                        placeholder="Material"
+                                        placeholder="Teacher"
+                                        required
                                       />
                                       <label for="tb-pwd">Teacher</label>
                                     </div>
@@ -141,6 +144,7 @@
                                         id="tb-cpwd"
                                         name="price"
                                         placeholder="Price"
+                                        required
                                       />
                                       <label for="tb-cpwd">Price</label>
                                     </div>
@@ -153,6 +157,7 @@
                                         id="tb-cpwd"
                                         name="discountedPrice"
                                         placeholder="Discounted Price"
+                                        required
                                       />
                                       <label for="tb-cpwd">Discounted Price</label>
                                     </div>
@@ -163,8 +168,9 @@
                                         type="number"
                                         class="form-control"
                                         id="tb-cpwd"
-                                        name="Lectures"
+                                        name="lectures"
                                         placeholder="Example 37"
+                                        required
                                       />
 
                                       <label for="tb-cpwd">Lectures</label>
@@ -179,6 +185,7 @@
                                         id="tb-cpwd"
                                         name="duration"
                                         placeholder="Example: 28h 30m"
+                                        required
                                       />
                                       <small id="name" class="badge badge-default text-info font-medium bg-light-info form-text">Example: 28h 30m </small>
 
@@ -192,8 +199,9 @@
                                         type="number"
                                         class="form-control"
                                         id="tb-cpwd"
-                                        name="Tests"
+                                        name="tests"
                                         placeholder="Example 20"
+                                        required
                                       />
 
                                       <label for="tb-cpwd">Tests</label>
@@ -226,12 +234,28 @@
                                         type="text"
                                         class="form-control"
                                         id="tb-cpwd"
-                                        name="image"
+                                        name="imageUrl"
                                         placeholder="Image Link"
+                                        required
                                       />
                                       <small id="name" class="badge badge-default text-info font-medium bg-light-info form-text">Size 220x320</small>
 
                                       <label for="tb-cpwd">Image Link</label>
+                                    </div>
+                                    
+                                  </div>
+                                  <div class="col-md-6 mt-4">
+                                    <div class="form-floating">
+                                      <input
+                                        type="text"
+                                        class="form-control"
+                                        id="tb-cpwd"
+                                        name="link"
+                                        placeholder="Link"
+                                        required
+                                      />
+
+                                      <label for="tb-cpwd">Course Link</label>
                                     </div>
                                     
                                   </div>
@@ -375,7 +399,7 @@
     
     <script>
       $(document).ready(function () {
-          const form = $('.jewellery-form');
+          const form = $('.course-form');
           const successAlert = $('.alert-success');
           const errorAlert = $('.alert-danger');
       
@@ -384,7 +408,7 @@
       
               // Serialize form data
               const formData = form.serialize();
-              // const form = $('.jewellery-form')[0]; // Convert jQuery object to plain JavaScript
+              // const form = $('.course-form')[0]; // Convert jQuery object to plain JavaScript
               // const formData = new FormData(form);
               console.log(formData)
               $.ajax({

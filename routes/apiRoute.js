@@ -9,6 +9,8 @@ router.post("/login", authController.login);
 router.get("/logout", authController.logout);
 router.post("/student-funnel", apiController.studentFunnel);
 router.post("/teacher-funnel", apiController.teacherFunnel);
+router.post("/add-course", apiController.addCourse);
+router.post("/add-event", apiController.addEvent);
 
 
 
